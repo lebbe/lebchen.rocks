@@ -1,108 +1,115 @@
 ---
-import { Links } from "../../components/Link/Links";
-import { PulsatingHeader } from "../../components/PulsatingHeader/PulsatingHeader";
-import LayoutPage from "../../layouts/LayoutPage.astro";
+import { Links } from '../../components/Link/Links'
+import { PulsatingHeader } from '../../components/PulsatingHeader/PulsatingHeader'
+import LayoutPage from '../../layouts/LayoutPage.astro'
 ---
 
-<LayoutPage title="It Came from the MMC" description="Dark synthwave with a heavy metal infused Nintendo">
-	<!--<p class="album-blurb" slot="over-header" aria-hidden="true">It Came from the MMC</p> -->
+<LayoutPage
+  title="It Came from the MMC"
+  description="Dark synthwave with a heavy metal infused Nintendo"
+>
+  <Fragment slot="over-header">
+    <span class="pulsatingHeaderWrapper">
+      <PulsatingHeader client:idle time={2000}
+        >It Came from the MMC</PulsatingHeader
+      >
+    </span>
+  </Fragment>
 
-	<Fragment slot="over-header">
-		<span class="pulsatingHeaderWrapper">
-			<PulsatingHeader client:idle time={2000}>It Came from the MMC</PulsatingHeader>
-		</span>
-	</Fragment>
-
-	<Links
-		amazon="https://music.amazon.com/albums/B0CH5C3H12"
-		anghami="https://www2.anghami.com/album/1043026687"
-		apple="https://music.apple.com/us/album/it-came-from-the-mmc/1705620410"
-		bandcamp="https://lebchen.bandcamp.com/album/it-came-from-the-mmc"
-		boomplay="https://www.boomplay.com/albums/76317350?from="
-		deezer="https://www.deezer.com/us/album/483410845"
-		spotify="https://open.spotify.com/album/7cuPbptswr83cNPPI0on42"
-		tidal="https://tidal.com/browse/track/314252847"
-		youtube="https://www.youtube.com/watch?v=seyMgLUxJBE&list=OLAK5uy_n5QPxNYROWECfV02kAvs5pyKfhd4-fPmE"
-		showIcons={false}
-	 />
+  <Links
+    amazon="https://music.amazon.com/albums/B0CH5C3H12"
+    anghami="https://www2.anghami.com/album/1043026687"
+    apple="https://music.apple.com/us/album/it-came-from-the-mmc/1705620410"
+    bandcamp="https://lebchen.bandcamp.com/album/it-came-from-the-mmc"
+    boomplay="https://www.boomplay.com/albums/76317350?from="
+    deezer="https://www.deezer.com/us/album/483410845"
+    spotify="https://open.spotify.com/album/7cuPbptswr83cNPPI0on42"
+    tidal="https://tidal.com/browse/track/314252847"
+    youtube="https://www.youtube.com/watch?v=seyMgLUxJBE&list=OLAK5uy_n5QPxNYROWECfV02kAvs5pyKfhd4-fPmE"
+    showIcons={false}
+  />
 </LayoutPage>
 
-
 <style is:global>
-	@font-face {
-		font-family: 'wayfarers';
-		src: url('/fonts/wayfarers.woff2') format('woff2');
-		font-weight: normal;
-		font-style: normal;
-	}
+  @font-face {
+    font-family: 'wayfarers';
+    src: url('/fonts/wayfarers.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
 
-	body {
-		font-family: 'wayfarers', sans-serif;
-	}
+  body {
+    font-family: 'wayfarers', sans-serif;
+  }
 
-	body a[href] {
-		--color: #ff0000;
-		font-size: 30px;
-		font-family: wayfarers;
-		color: #e1ac0f;
-		transition: text-shadow 0.8s ease-in-out;
-		text-shadow: 0 0 20px var(--color), 0 0 30px var(--color), 0 0 40px var(--color);
-		padding: 60px 0 60px 0;
-		margin: 0;
-		box-sizing: border-box;
-		text-align: center;
-		width: 100%;
-		border-radius: 0;
-		overflow: hidden;
-		text-decoration: none;
-		display: flex;
-		align-content: center;
-		align-items: center;
-		gap: 40px;
-		height: 80px;
-		transition-duration: 300ms;
-	}
+  body a[href] {
+    --color: #ff0000;
+    font-size: 30px;
+    font-family: wayfarers;
+    color: #e1ac0f;
+    transition: text-shadow 0.8s ease-in-out;
+    text-shadow:
+      0 0 20px var(--color),
+      0 0 30px var(--color),
+      0 0 40px var(--color);
+    padding: 60px 0 60px 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-align: center;
+    width: 100%;
+    border-radius: 0;
+    overflow: hidden;
+    text-decoration: none;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    gap: 40px;
+    height: 80px;
+    transition-duration: 300ms;
+  }
 
-	@media screen and (max-width: 800px) {
-		body a[href] {
-			height: 60px;
-			width: 100%;
-			font-size: 20px;
-			padding: 0;
-		}
-	}
+  @media screen and (max-width: 800px) {
+    body a[href] {
+      height: 60px;
+      width: 100%;
+      font-size: 20px;
+      padding: 0;
+    }
+  }
 
-	
-	@media screen and (max-width: 639px) {
-		body a[href] {
-			height: 40px;
-			width: 300px;
-			font-size: 15px;
-		}
-	}
+  @media screen and (max-width: 639px) {
+    body a[href] {
+      height: 40px;
+      width: 300px;
+      font-size: 15px;
+    }
+  }
 
-	.pulsatingHeaderWrapper {
-		--color: #e1ac0f;
-		--fontFamily: wayfarers;
-		--fontSize: 35px;
-		--fontSizeMobile: 20px;
-	}
+  .pulsatingHeaderWrapper {
+    --color: #e1ac0f;
+    --fontFamily: wayfarers;
+    --fontSize: 35px;
+    --fontSizeMobile: 20px;
+  }
 
-	.album-blurb{
-		--color: #ff0000;
-		font-size: 30px;
-		font-family: wayfarers;
-		color: #e1ac0f;
-		transition: text-shadow 0.8s ease-in-out;
-		text-shadow: 0 0 20px var(--color), 0 0 30px var(--color), 0 0 40px var(--color);
-		padding: 60px 0 60px 0;
-		margin: 0;
-		box-sizing: border-box;
-		text-align: center;
-	}
+  .album-blurb {
+    --color: #ff0000;
+    font-size: 30px;
+    font-family: wayfarers;
+    color: #e1ac0f;
+    transition: text-shadow 0.8s ease-in-out;
+    text-shadow:
+      0 0 20px var(--color),
+      0 0 30px var(--color),
+      0 0 40px var(--color);
+    padding: 60px 0 60px 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-align: center;
+  }
 
-	body a[href]:hover {
-		background: rgb(194 194 194 / 76%);
-  		color: #1c1c1c;
-	}
+  body a[href]:hover {
+    background: rgb(194 194 194 / 76%);
+    color: #1c1c1c;
+  }
 </style>

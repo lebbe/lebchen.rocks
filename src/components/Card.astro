@@ -1,73 +1,72 @@
 ---
 interface Props {
-	title: string;
-	href: string;
+  title: string
+  href: string
 }
 
-const { href, title } = Astro.props;
+const { href, title } = Astro.props
 ---
 
-<a class="track"  href={href}>
-		<h2 class="track-title">
-			{title}
-		</h2>
-		<img src={href + "albumcover.jpg"}>
+<a class="track" href={href}>
+  <h2 class="track-title">
+    {title}
+  </h2>
+  <img src={href + 'albumcover.jpg'} />
 </a>
 <style>
-.track {
-  font-family: 'Spectral', serif;
-  background-color: #342a38eb;
-  text-align: center;
-  width: 440px;
-  display: flex;
-  flex-direction: column;
-  text-decoration: none;
-  align-items: center;
-}
-.track-title {
-  width: 100%;
-  padding: 2px;
-  background: #131313;
-  flex-grow: 1;
-  color: #9f85a5;
-  font-size: 24px;
-  font-weight: 100;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-
-img {
-  width: 80%;
-  margin: 16px 0;
-}
-
-@media screen and (max-width: 1350px) {
-  .track-title  {
-	  background-color: black;
-    color: #a496a7;
-  }
-
-  .link-card-grid {
-	justify-content: space-between;
-  }
-}
-
-@media screen and (max-width: 921px) {
   .track {
-    width: 100%;
-    margin: 20px 40px;
+    font-family: 'Spectral', serif;
+    background-color: #342a38eb;
+    text-align: center;
+    width: 440px;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    align-items: center;
   }
-}
-
-@media screen and (max-width: 440px) {
-  .track {
+  .track-title {
     width: 100%;
-    margin: 20px 20px;
+    padding: 2px;
+    background: #131313;
+    flex-grow: 1;
+    color: #9f85a5;
+    font-size: 24px;
+    font-weight: 100;
+    margin: 0;
+    box-sizing: border-box;
   }
 
   img {
-    width: 90%;
+    width: 80%;
+    margin: 16px 0;
   }
-}
+
+  @media screen and (max-width: 1350px) {
+    .track-title {
+      background-color: black;
+      color: #a496a7;
+    }
+
+    .link-card-grid {
+      justify-content: space-between;
+    }
+  }
+
+  @media screen and (max-width: 921px) {
+    .track {
+      width: 100%;
+      margin: 20px 40px;
+    }
+  }
+
+  @media screen and (max-width: 440px) {
+    .track {
+      width: 100%;
+      margin: 20px 20px;
+    }
+
+    img {
+      width: 90%;
+    }
+  }
 </style>
