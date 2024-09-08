@@ -1,14 +1,31 @@
 ---
+import { SEO } from "astro-seo";
+
 interface Props {
 	title: string;
+	description: string;
 }
 
 const { title } = Astro.props;
+const { description } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
+		<SEO title={title} description={description} openGraph={{
+			basic: {
+				title,
+				type: "website",
+				image: "albumcover.jpg",
+			},
+			optional: {
+				description,
+				audio: "preview.mp3",
+				locale: "en_US",
+				
+			}
+		}} />
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
