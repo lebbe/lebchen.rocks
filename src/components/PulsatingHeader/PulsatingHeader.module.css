@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Russo+One&display=swap');
+
+:root {
+  --shadowColor: #990000;
+  --color: #ff2222;
+  --fontFamily: 'Russo One', sans-serif;
+  --fontSize: 60px;
+  --fontSizeMobile: 40px;
+}
+
+.pulsatingHeader {
+  font-size: var(--fontSize);
+  font-family: var(--fontFamily);
+  color: var(--color);
+  transition: text-shadow 0.8s ease-in-out;
+  text-shadow: 0 0 10px var(--shadowColor);
+  padding: 60px 0 60px 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.pulsatingHeaderOff {
+  text-shadow:
+    0 0 20px var(--shadowColor),
+    0 0 30px var(--shadowColor);
+}
+
+@media screen and (max-width: 639px) {
+  .pulsatingHeader {
+    font-size: var(--fontSizeMobile);
+  }
+}

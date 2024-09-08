@@ -1,0 +1,14 @@
+---
+import { Links } from "../../components/Link/Links";
+import { PulsatingHeader } from "../../components/PulsatingHeader/PulsatingHeader";
+import LayoutPage from "../../layouts/LayoutPage.astro";
+---
+
+<LayoutPage title="Understrøm">
+	<Fragment slot="over-header">
+		<PulsatingHeader client:idle time={5000}>Understrøm</PulsatingHeader>
+	</Fragment>
+	<span slot="subtitle">by lebchen, featuring Sad Alien</span>
+	<Links
+	 />
+</LayoutPage>

@@ -1,0 +1,46 @@
+.link {
+  background: #1c1c1ceb;
+  width: 100%;
+  border-radius: 25px;
+  overflow: hidden;
+  text-decoration: none;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  gap: 40px;
+  height: 80px;
+  padding-left: 10px;
+  transition-property: background-color, color;
+  transition-duration: 300ms;
+  color: rgb(194, 194, 194);
+  font-family: sans-serif;
+  text-decoration: none;
+  font-size: 35px;
+  display: flex;
+}
+
+.linkIconHidden {
+  opacity: 0.01;
+}
+
+.link:hover {
+  background: rgb(194 194 194 / 76%);
+  color: #1c1c1c;
+}
+
+.linkIcon {
+  height: 60px;
+}
+
+@media screen and (max-width: 639px) {
+  .link {
+    height: 40px;
+    width: 300px;
+  }
+  .linkIcon {
+    height: 30px;
+  }
+  .linkTxt {
+    font-size: 25px;
+  }
+}
