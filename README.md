@@ -2,4 +2,4 @@
 
 This is the source code for my artist homepage [lebchen.rocks](https://lebchen.rocks)!
 
-It is made with [astro](https://astro.build/), as an Static Site Generation. (No islands are currently used.)
+It is made with [astro](https://astro.build/), as an Static Site Generation.
