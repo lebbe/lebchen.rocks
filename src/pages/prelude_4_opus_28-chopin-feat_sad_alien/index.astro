@@ -1,5 +1,6 @@
 ---
 import { Links } from '../../components/Link/Links'
+import Topstripe from '../../components/Topstripe.astro'
 import LayoutPage from '../../layouts/LayoutPage.astro'
 ---
 
@@ -7,6 +8,9 @@ import LayoutPage from '../../layouts/LayoutPage.astro'
   title="Prelude 4 Opus 28 (Chopin) feat. Sad Alien"
   description="Stream 'Prelude 4 Opus 28 (Chopin) (feat. Sad Alien)' by lebchen, out on all major platforms now!"
 >
+  <Fragment slot="over-header">
+    <Topstripe />
+  </Fragment>
   <span slot="subtitle">Prelude 4 Opus 28 (Chopin) feat. Sad Alien</span>
   <Links
     apple="https://music.apple.com/us/album/prelude-4-opus-28-chopin-feat-sad-alien-single/1654084163"

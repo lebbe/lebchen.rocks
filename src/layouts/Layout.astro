@@ -1,16 +1,45 @@
 ---
+import { SEO } from 'astro-seo'
+
 interface Props {
   title: string
 }
 
 const { title } = Astro.props
+const description = "Welcome to lebchen's artist homepage! Here you can find all the information you need about lebchen's music and projects."
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
+    <SEO
+      title={title}
+      description={description}
+      canonical={"https://lebchen.rocks" + Astro.url.pathname}
+      openGraph={{
+        basic: {
+          title,
+          type: 'website',
+          image: "https://lebchen.rocks/mmc/some.jpg",
+          url: "https://lebchen.rocks" + Astro.url.pathname,
+        },
+        optional: {
+          description,
+          locale: 'en_US',
+          
+        },
+        image: {
+          url: "https://lebchen.rocks/mmc/some.jpg",
+          secureUrl: "https://lebchen.rocks/mmc/some.jpg",
+          type: 'image/jpeg',
+          width: 1200,
+          height: 630,
+          alt: title,
+        }
+      }}
+    />
     <meta charset="UTF-8" />
-    <meta name="description" content="lebchen's artist homepage" />
+    <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />

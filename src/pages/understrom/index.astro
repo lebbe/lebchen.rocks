@@ -2,13 +2,16 @@
 import { Links } from '../../components/Link/Links'
 import { PulsatingHeader } from '../../components/PulsatingHeader/PulsatingHeader'
 import LayoutPage from '../../layouts/LayoutPage.astro'
+import Topstripe from '../../components/Topstripe.astro'
 ---
 
 <LayoutPage
   title="Understrøm"
   description="The theme melody for the episodic movie Understrøm."
 >
+  
   <Fragment slot="over-header">
+    <Topstripe />
     <PulsatingHeader client:idle time={5000}>Understrøm</PulsatingHeader>
   </Fragment>
   <span slot="subtitle">by lebchen, featuring Sad Alien</span>

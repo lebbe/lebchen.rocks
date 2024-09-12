@@ -1,9 +1,13 @@
 ---
 import { Links } from "../../components/Link/Links";
+import Topstripe from "../../components/Topstripe.astro";
 import LayoutPage from "../../layouts/LayoutPage.astro";
 ---
 
 <LayoutPage title="The World is Yours" description="An amazing synthwave track made by Lebchen!">
+	<Fragment slot="over-header">
+		<Topstripe />
+	  </Fragment>
 	<Links
 		apple="https://music.apple.com/us/album/the-world-is-yours-single/1650068059"	
 		bandcamp="https://lebchen.bandcamp.com/track/the-world-is-yours"

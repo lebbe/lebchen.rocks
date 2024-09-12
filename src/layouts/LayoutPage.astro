@@ -8,7 +8,7 @@ interface Props {
 
 const { title } = Astro.props
 const { description } = Astro.props
-const image = `https://lebchen.rocks${Astro.url.pathname}albumcover.jpg`
+const image = `https://lebchen.rocks${Astro.url.pathname}some.jpg`
 const audio = `https://lebchen.rocks${Astro.url.pathname}preview.mp3`
 ---
 
@@ -18,22 +18,31 @@ const audio = `https://lebchen.rocks${Astro.url.pathname}preview.mp3`
     <SEO
       title={title}
       description={description}
+      canonical={"https://lebchen.rocks" + Astro.url.pathname}
       openGraph={{
         basic: {
           title,
           type: 'website',
           image: image,
-          url: 'https://lebchen.rocks',
+          url: "https://lebchen.rocks" + Astro.url.pathname,
         },
         optional: {
           description,
           audio: audio,
           locale: 'en_US',
+          
         },
+        image: {
+          url: image,
+          secureUrl: image,
+          type: 'image/jpeg',
+          width: 1200,
+          height: 630,
+          alt: title,
+        }
       }}
     />
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
