@@ -3,7 +3,7 @@ import { useState } from 'react'
 export function BalanceController({
   pannerNode,
 }: {
-  pannerNode: StereoPannerNode
+  pannerNode: StereoPannerNode | undefined
 }) {
   const [value, setValue] = useState(50)
   return (
@@ -13,6 +13,7 @@ export function BalanceController({
       max="100"
       className="player-section-volumetc-range balanceController"
       onInput={(e) => {
+        if (!pannerNode) return
         // @ts-expect-error
         const ratio = e.target.value / 50 - 1
         pannerNode.pan.value = ratio

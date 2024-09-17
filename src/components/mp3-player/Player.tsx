@@ -21,9 +21,15 @@ type Song = {
 type Props = {
   songs: Song[]
   audio: HTMLAudioElement
+  userGestureHasHappened: boolean
 }
 
-function Player({ songs, audio }: Props) {
+interface AudioRefs {
+  analyserNode: AnalyserNode
+  pannerNode: StereoPannerNode
+}
+
+function Player({ songs, audio, userGestureHasHappened }: Props) {
   const [songIndex, setSongIndex] = useState(0)
   const [isPlaying, setIsPlaying] = useState(false)
   // We need to know if it's paused (not stopped) to prevent clearing the visualizer
@@ -33,7 +39,7 @@ function Player({ songs, audio }: Props) {
   const [repeat, setRepeat] = useState(false)
   const [time, setTime] = useState(0)
 
-  const audioRefs = useRef<any>(null)
+  const audioRefs = useRef<AudioRefs>(null)
 
   useEffect(
     function playPause() {
@@ -73,7 +79,7 @@ function Player({ songs, audio }: Props) {
     [songIndex, repeat, isPlaying],
   )
 
-  if (!audioRefs.current) {
+  if (!audioRefs.current && userGestureHasHappened) {
     const audioContext = new AudioContext()
     const analyserNode = audioContext.createAnalyser()
     const sourceNode = audioContext.createMediaElementSource(audio)
@@ -84,10 +90,11 @@ function Player({ songs, audio }: Props) {
       .connect(analyserNode)
       .connect(audioContext.destination)
 
+    // @ts-expect-error
     audioRefs.current = { analyserNode, pannerNode }
   }
 
-  const { analyserNode, pannerNode } = audioRefs.current
+  const { analyserNode, pannerNode } = audioRefs.current || {}
 
   function nextSong() {
     if (shuffle) {
@@ -208,9 +215,24 @@ function Player({ songs, audio }: Props) {
 }
 
 export function PlayerWrapper({ songs }: { songs: Song[] }) {
+  const [userGestureHasHappened, setUserGestureHasHappened] = useState(false)
   const audioRef = useRef<HTMLAudioElement>(null)
 
   const [isAudioReady, setIsAudioReady] = useState(false)
+
+  useEffect(function initiateOnUserGesture() {
+    function handleUserGesture() {
+      setUserGestureHasHappened(true)
+    }
+
+    window.addEventListener('click', handleUserGesture)
+    window.addEventListener('keydown', handleUserGesture)
+
+    return function cleanup() {
+      window.removeEventListener('click', handleUserGesture)
+      window.removeEventListener('keydown', handleUserGesture)
+    }
+  }, [])
 
   useEffect(function () {
     setIsAudioReady(true)
@@ -219,7 +241,13 @@ export function PlayerWrapper({ songs }: { songs: Song[] }) {
   return (
     <div className="mp3-player">
       <audio ref={audioRef} id="audio" src={songs[0].src} />
-      {audioRef.current && <Player songs={songs} audio={audioRef.current} />}
+      {audioRef.current && (
+        <Player
+          songs={songs}
+          audio={audioRef.current}
+          userGestureHasHappened={userGestureHasHappened}
+        />
+      )}
     </div>
   )
 }
