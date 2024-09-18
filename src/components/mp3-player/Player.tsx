@@ -16,10 +16,12 @@ type Song = {
   artist: string
   src: string
   duration: string
+  artwork?: MediaImage[]
 }
 
 type Props = {
   songs: Song[]
+  playlistName: string
   audio: HTMLAudioElement
   userGestureHasHappened: boolean
 }
@@ -29,7 +31,7 @@ interface AudioRefs {
   pannerNode: StereoPannerNode
 }
 
-function Player({ songs, audio, userGestureHasHappened }: Props) {
+function Player({ songs, audio, userGestureHasHappened, playlistName }: Props) {
   const [songIndex, setSongIndex] = useState(0)
   const [isPlaying, setIsPlaying] = useState(false)
   // We need to know if it's paused (not stopped) to prevent clearing the visualizer
@@ -79,6 +81,21 @@ function Player({ songs, audio, userGestureHasHappened }: Props) {
     [songIndex, repeat, isPlaying],
   )
 
+  useEffect(
+    function setMetadata() {
+      if (!('mediaSession' in navigator)) {
+        return
+      }
+      navigator.mediaSession.metadata = new MediaMetadata({
+        title: songs[songIndex].name,
+        artist: songs[songIndex].artist,
+        artwork: songs[songIndex].artwork,
+        album: playlistName,
+      })
+    },
+    [songIndex],
+  )
+
   if (!audioRefs.current && userGestureHasHappened) {
     const audioContext = new AudioContext()
     const analyserNode = audioContext.createAnalyser()
@@ -94,7 +111,26 @@ function Player({ songs, audio, userGestureHasHappened }: Props) {
     audioRefs.current = { analyserNode, pannerNode }
   }
 
+  if ('mediaSession' in navigator) {
+    // We have to replace these on every render, because the functions are closures
+    navigator.mediaSession.setActionHandler('play', () => setIsPlaying(true))
+    navigator.mediaSession.setActionHandler('pause', () => setIsPlaying(false))
+    navigator.mediaSession.setActionHandler('previoustrack', previousSong)
+    navigator.mediaSession.setActionHandler('nexttrack', nextSong)
+  }
+
   const { analyserNode, pannerNode } = audioRefs.current || {}
+
+  const currentSong = songs[songIndex]
+
+  const biggestAlbumArt = currentSong.artwork?.reduce(function (
+    biggest: MediaImage,
+    song: MediaImage,
+  ) {
+    const sizeBiggest = parseInt(biggest.sizes || '0', 10)
+    const sizeSong = parseInt(song.sizes || '0', 10)
+    return sizeSong > sizeBiggest ? song : biggest
+  })
 
   function nextSong() {
     if (shuffle) {
@@ -210,11 +246,21 @@ function Player({ songs, audio, userGestureHasHappened }: Props) {
           </div>
         </div>
       </Window>
+      {biggestAlbumArt && (
+        <Window title="Album art">
+          <img src={biggestAlbumArt.src} />
+        </Window>
+      )}
     </div>
   )
 }
 
-export function PlayerWrapper({ songs }: { songs: Song[] }) {
+type WrapperProps = {
+  songs: Song[]
+  playlistName: string
+}
+
+export function PlayerWrapper({ songs, playlistName }: WrapperProps) {
   const [userGestureHasHappened, setUserGestureHasHappened] = useState(false)
   const audioRef = useRef<HTMLAudioElement>(null)
 
@@ -244,6 +290,7 @@ export function PlayerWrapper({ songs }: { songs: Song[] }) {
       {audioRef.current && (
         <Player
           songs={songs}
+          playlistName={playlistName}
           audio={audioRef.current}
           userGestureHasHappened={userGestureHasHappened}
         />
