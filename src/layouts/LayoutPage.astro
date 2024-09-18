@@ -39,7 +39,19 @@ const audio = `https://lebchen.rocks${Astro.url.pathname}preview.mp3`
           width: 1200,
           height: 630,
           alt: title,
+        },
+        article: {
+          authors: ['lebchen'],
+          section: 'Music',
+          tags: ['synthwave'],
         }
+      }}
+      twitter={{
+        card: 'summary_large_image',
+        title,
+        description,
+        image,
+        imageAlt: title,
       }}
     />
     <meta charset="UTF-8" />
