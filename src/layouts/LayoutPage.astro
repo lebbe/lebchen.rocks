@@ -191,4 +191,19 @@ const audio = `https://lebchen.rocks${Astro.url.pathname}preview.mp3`
     border-radius: 25px;
     margin: 30px auto;
   }
+
+  a[href=""],
+  a:not([href]) {
+    color: red;
+    background-color: red;
+    text-decoration: none;
+  }
+
+
+  a[href=""]:hover,
+  a:not([href]):not([name]):hover {
+    color: black;
+    background-color: red;
+    cursor: not-allowed;
+  }
 </style>
