@@ -16,7 +16,7 @@ export function Link({ href, imgSrc, children, showIcon }: Props) {
         className={css.linkIcon + (showIcon ? '' : ' ' + css.linkIconHidden)}
         src={imgSrc}
       />
-      <span>{children}</span>
+      <span className={css.linkText}>{children}</span>
     </a>
   )
 }

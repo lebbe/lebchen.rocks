@@ -45,3 +45,22 @@
     font-size: 25px;
   }
 }
+
+.link[href='#'] {
+  background: #930000;
+  color: black;
+  cursor: not-allowed;
+}
+
+.link[href='#']:hover .linkText {
+  display: none;
+}
+
+.link[href='#']:hover {
+  background: rgb(194 194 194 / 76%);
+  color: #1c1c1c;
+}
+
+.link[href='#']:hover:after {
+  content: 'Coming soon!';
+}
