@@ -1,6 +1,5 @@
 ---
 import { Links } from '../../components/Link/Links'
-import { PulsatingHeader } from '../../components/PulsatingHeader/PulsatingHeader'
 import LayoutPage from '../../layouts/LayoutPage.astro'
 import Topstripe from '../../components/Topstripe.astro'
 ---
@@ -11,69 +10,22 @@ import Topstripe from '../../components/Topstripe.astro'
 >
   <Fragment slot="over-header">
     <Topstripe />
-    <h1>Afterglow Bliss</h1>
   </Fragment>
-  <span class="title" slot="subtitle">by lebchen, featuring Ofat<br/>&nbsp;<br/>Coming October 20th!</span>
+  <span class="title" slot="subtitle">by lebchen, featuring Ofat</span>
   <Links
-    amazon="#"
-    anghami="#"
-    apple="#"
-    boomplay="#"
-    deezer="#"
-    spotify="#"
-    tidal="#"
-    youtube="#"
+    amazon="https://music.amazon.com/albums/B0DJRRLFHX"
+    anghami="https://play.anghami.com/song/1180982887"
+    apple="https://music.apple.com/us/album/afterglow-bliss-feat-ofat-single/1773432285"
+    boomplay="https://www.boomplay.com/songs/185129468?from=artists"
+    deezer="https://www.deezer.com/us/album/654626261"
+    spotify="https://open.spotify.com/track/1ADAR7aiN2UcJsA0pUsTI8"
+    tidal="https://tidal.com/browse/track/392319939"
+    youtube="https://www.youtube.com/watch?v=cc9Qz8r5qMU"
   />
 </LayoutPage>
 
-<style is:global>
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lobster&family=Parisienne&family=Playfair+Display:wght@400;700&display=swap');
-
-body {
-    background-color: #333; /* Dark background to give a sleek, CD cover-like appearance */
-    color: #ffffff;
-    font-family: 'Playfair Display', serif;
-
-}
-
-/* Main container for the homepage layout */
-.homepage-container {
-    width: 80%;
-    max-width: 1200px;
-    text-align: center;
-    padding: 50px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Adds depth, like a CD cover */
-    background-color: #333; /* Dark, but not black, for a rich background */
-    border-radius: 10px;
-}
-
-/* Header styling with bold 90s vibe */
-h1 {
-    font-family: 'Lobster', cursive;
-    font-size: 56px;
-    color: #edb338; /* Bright, golden color to stand out */
-    text-shadow: 3px 3px 5px rgba(177, 81, 56); /* Shadow for depth */
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: center;
-}
-
-.title {
-    font-family: 'Great Vibes', cursive;
-    font-size: 48px;
-    color: #035e93; /* Soft pink for a nostalgic, romantic feel */
-    text-shadow: 2px 2px 4px rgb(201, 96, 64);
-    margin-bottom: 40px;
-    display: inline-block;
-    background: #c6c6c6;
-    padding: 10px 20px;
-    border-radius: 10px;
-
-}
-
-header {
-  background: transparent;
-}
-
-
+<style>
+  body {
+    --headercard-background: rgba(204, 156, 94, 0.36)
+  }
 </style>

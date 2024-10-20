@@ -62,7 +62,6 @@ const audio = `https://lebchen.rocks${Astro.url.pathname}preview.mp3`
   </head>
   <body>
     <aside class="background" aria-hidden="true">
-      <img class="background-image" src="albumcover.jpg" />
       <img class="background-image" src="background.jpg" />
     </aside>
     <slot name="over-header" />
@@ -96,6 +95,7 @@ const audio = `https://lebchen.rocks${Astro.url.pathname}preview.mp3`
       rgb(var(--accent-light)) 30%,
       white 60%
     );
+    --headercard-background: rgb(64 64 64 / 36%)
   }
   html {
     font-family: system-ui, sans-serif;
@@ -169,11 +169,20 @@ const audio = `https://lebchen.rocks${Astro.url.pathname}preview.mp3`
     .background {
       height: 100vh;
       width: initial;
+      width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  
     }
 
     .background-image {
       height: 100%;
       width: initial;
+      position: absolute; /* Enable absolute positioning */
+  top: 50%; /* Move the image down by 50% of its height */
+  left: 50%; /* Move the image to the right by 50% of its width */
+  transform: translate(-50%, -50%); /* Offset it to center it */
+
     }
   }
 
@@ -182,7 +191,7 @@ const audio = `https://lebchen.rocks${Astro.url.pathname}preview.mp3`
   }
 
   header {
-    background: rgb(64 64 64 / 36%);
+    background: var(--headercard-background);
     max-width: 800px;
     display: flex;
     flex-direction: column;
