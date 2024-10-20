@@ -18,19 +18,18 @@ const audio = `https://lebchen.rocks${Astro.url.pathname}preview.mp3`
     <SEO
       title={title}
       description={description}
-      canonical={"https://lebchen.rocks" + Astro.url.pathname}
+      canonical={'https://lebchen.rocks' + Astro.url.pathname}
       openGraph={{
         basic: {
           title,
           type: 'website',
           image: image,
-          url: "https://lebchen.rocks" + Astro.url.pathname,
+          url: 'https://lebchen.rocks' + Astro.url.pathname,
         },
         optional: {
           description,
           audio: audio,
           locale: 'en_US',
-          
         },
         image: {
           url: image,
@@ -44,7 +43,7 @@ const audio = `https://lebchen.rocks${Astro.url.pathname}preview.mp3`
           authors: ['lebchen'],
           section: 'Music',
           tags: ['synthwave'],
-        }
+        },
       }}
       twitter={{
         card: 'summary_large_image',
@@ -58,6 +57,12 @@ const audio = `https://lebchen.rocks${Astro.url.pathname}preview.mp3`
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap"
+      rel="stylesheet"
+    />
     <title>{title}</title>
   </head>
   <body>
@@ -95,7 +100,7 @@ const audio = `https://lebchen.rocks${Astro.url.pathname}preview.mp3`
       rgb(var(--accent-light)) 30%,
       white 60%
     );
-    --headercard-background: rgb(64 64 64 / 36%)
+    --headercard-background: rgb(64 64 64 / 36%);
   }
   html {
     font-family: system-ui, sans-serif;
@@ -170,19 +175,17 @@ const audio = `https://lebchen.rocks${Astro.url.pathname}preview.mp3`
       height: 100vh;
       width: initial;
       width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-  
+      height: 100vh;
+      overflow: hidden;
     }
 
     .background-image {
       height: 100%;
       width: initial;
       position: absolute; /* Enable absolute positioning */
-  top: 50%; /* Move the image down by 50% of its height */
-  left: 50%; /* Move the image to the right by 50% of its width */
-  transform: translate(-50%, -50%); /* Offset it to center it */
-
+      top: 50%; /* Move the image down by 50% of its height */
+      left: 50%; /* Move the image to the right by 50% of its width */
+      transform: translate(-50%, -50%); /* Offset it to center it */
     }
   }
 
@@ -201,4 +204,9 @@ const audio = `https://lebchen.rocks${Astro.url.pathname}preview.mp3`
     margin: 30px auto;
   }
 
+  .russo-one-regular {
+    font-family: 'Russo One', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
 </style>

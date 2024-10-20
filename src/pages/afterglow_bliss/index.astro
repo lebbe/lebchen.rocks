@@ -2,19 +2,22 @@
 import { Links } from '../../components/Link/Links'
 import LayoutPage from '../../layouts/LayoutPage.astro'
 import Topstripe from '../../components/Topstripe.astro'
+import { PulsatingHeader } from '../../components/PulsatingHeader/PulsatingHeader'
 ---
 
 <LayoutPage
   title="Afterglow Bliss"
-  description="A single from the upcoming album 'CrossSnow - The Original Motion Picture Soundtrack'"
+  description="Check out this captivating synthwave track by Lebchen, featuring the one and only Ofat—aka the Sax Messiah—on saxophone. It's the latest single from the highly anticipated album CrossSnow: The Original Motion Picture Soundtrack. Don’t miss this electrifying fusion of retro vibes and sax-driven magic!"
 >
   <Fragment slot="over-header">
     <Topstripe />
+    <PulsatingHeader client:idle time={5000}>Afterglow Bliss</PulsatingHeader>
   </Fragment>
   <span class="title" slot="subtitle">by lebchen, featuring Ofat</span>
   <Links
     amazon="https://music.amazon.com/albums/B0DJRRLFHX"
     anghami="https://play.anghami.com/song/1180982887"
+    bandcamp="https://lebchen.bandcamp.com/track/afterglow-bliss"
     apple="https://music.apple.com/us/album/afterglow-bliss-feat-ofat-single/1773432285"
     boomplay="https://www.boomplay.com/songs/185129468?from=artists"
     deezer="https://www.deezer.com/us/album/654626261"
@@ -26,6 +29,8 @@ import Topstripe from '../../components/Topstripe.astro'
 
 <style>
   body {
-    --headercard-background: rgba(204, 156, 94, 0.36)
+    --headercard-background: rgba(204, 156, 94, 0.36);
+    --color: #e3af6c;
+    --shadowColor: #919191;
   }
 </style>
