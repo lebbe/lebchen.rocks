@@ -1,0 +1,36 @@
+---
+import { Links } from '../../components/Link/Links'
+import LayoutPage from '../../layouts/LayoutPage.astro'
+import Topstripe from '../../components/Topstripe.astro'
+import { PulsatingHeader } from '../../components/PulsatingHeader/PulsatingHeader'
+---
+
+<LayoutPage
+  title="CrossSnow Cold Cuts EP"
+  description="This three track EP is the final sneak peek into the upcoming album CrossSnow Original Movie Soundtrack by lebchen."
+>
+  <Fragment slot="over-header">
+    <Topstripe />
+    <PulsatingHeader client:idle time={5000}>CrossSnow Cold Cuts EP</PulsatingHeader>
+  </Fragment>
+  <span class="title" slot="subtitle">by lebchen</span>
+  <Links
+    amazon=""
+    anghami=""
+    bandcamp=""
+    apple=""
+    boomplay=""
+    deezer=""
+    spotify=""
+    tidal=""
+    youtube=""
+  />
+</LayoutPage>
+
+<style>
+  body {
+    --headercard-background: rgba(204, 156, 94, 0.36);
+    --color: #e3af6c;
+    --shadowColor: #919191;
+  }
+</style>
