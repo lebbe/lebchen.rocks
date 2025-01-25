@@ -107,7 +107,6 @@ function Player({ songs, audio, userGestureHasHappened, playlistName }: Props) {
       .connect(analyserNode)
       .connect(audioContext.destination)
 
-    // @ts-expect-error
     audioRefs.current = { analyserNode, pannerNode }
   }
 
