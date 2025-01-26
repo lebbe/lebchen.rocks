@@ -467,3 +467,27 @@ input[type='range']::-webkit-slider-runnable-track {
     rgb(255, 0, 0) 100%
   );
 }
+
+.streaming-links {
+  background-color: black;
+  width: 100%;
+  box-shadow: -1px -1px 6px #4c4c75 inset;
+}
+.streaming-links a {
+  color: var(--color-text);
+  text-decoration: none;
+  font-family: 'Press Start 2P', 'VT323', Tahoma, Arial, sans-serif;
+  width: 100%;
+  background-color: transparent;
+  box-sizing: border-box;
+  border-radius: 0;
+  font-size: 30px;
+  height: 70px;
+}
+
+.streaming-links img {
+  /* make image look pixelated */
+  image-rendering: pixelated;
+  background-color: blanchedalmond;
+  height: 50px;
+}

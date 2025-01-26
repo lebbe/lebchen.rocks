@@ -10,6 +10,7 @@ import { Range } from './Range'
 import { Controls } from './Controls'
 
 import './style.css'
+import { Links } from '../Link/Links'
 
 type Song = {
   name: string
@@ -24,6 +25,7 @@ type Props = {
   playlistName: string
   audio: HTMLAudioElement
   userGestureHasHappened: boolean
+  links: React.ReactNode
 }
 
 interface AudioRefs {
@@ -31,7 +33,13 @@ interface AudioRefs {
   pannerNode: StereoPannerNode
 }
 
-function Player({ songs, audio, userGestureHasHappened, playlistName }: Props) {
+function Player({
+  songs,
+  audio,
+  userGestureHasHappened,
+  playlistName,
+  links,
+}: Props) {
   const [songIndex, setSongIndex] = useState(0)
   const [isPlaying, setIsPlaying] = useState(false)
   // We need to know if it's paused (not stopped) to prevent clearing the visualizer
@@ -267,6 +275,9 @@ function Player({ songs, audio, userGestureHasHappened, playlistName }: Props) {
           <img src={biggestAlbumArt.src} />
         </Window>
       )}
+      <Window title="Streaming platforms" minimizable>
+        <div className="streaming-links">{links}</div>
+      </Window>
     </div>
   )
 }
@@ -287,9 +298,20 @@ function prefixNumberWithZero(number: number, playlistLength: number) {
 type WrapperProps = {
   songs: Song[]
   playlistName: string
+  links: {
+    amazon?: string
+    anghami?: string
+    bandcamp?: string
+    apple?: string
+    boomplay?: string
+    deezer?: string
+    spotify?: string
+    tidal?: string
+    youtube?: string
+  }
 }
 
-export function PlayerWrapper({ songs, playlistName }: WrapperProps) {
+export function PlayerWrapper({ songs, playlistName, links }: WrapperProps) {
   const [userGestureHasHappened, setUserGestureHasHappened] = useState(false)
   const audioRef = useRef<HTMLAudioElement>(null)
 
@@ -322,6 +344,7 @@ export function PlayerWrapper({ songs, playlistName }: WrapperProps) {
           playlistName={playlistName}
           audio={audioRef.current}
           userGestureHasHappened={userGestureHasHappened}
+          links={<Links {...links} />}
         />
       )}
     </div>

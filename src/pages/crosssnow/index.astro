@@ -1,4 +1,5 @@
 ---
+import { Links } from '../../components/Link/Links'
 import { PlayerWrapper } from '../../components/mp3-player/Player'
 
 const artwork = [
@@ -227,6 +228,20 @@ const songs = [
       client:only
       songs={songs}
       playlistName="Crosssnow OST"
+      links={{
+        amazon: 'https://music.amazon.com/albums/B0DNGQJGYP',
+        anghami: 'https://play.anghami.com/album/1060968049',
+        bandcamp: 'https://lebchen.bandcamp.com/album/crosssnow-cold-cuts-ep',
+        apple:
+          'https://music.apple.com/us/album/crosssnow-cold-cuts-ep-single/1780805244',
+        boomplay: 'https://www.boomplay.com/albums/102093147',
+        deezer: 'https://www.deezer.com/us/album/672267291',
+        spotify:
+          'https://open.spotify.com/album/6z7kw1qI70FfRWhEw2p0Jm',
+        tidal: 'https://tidal.com/browse/album/400618153',
+        youtube:
+          'https://www.youtube.com/watch?v=GFnQsWXy3aQ&list=OLAK5uy_mYQJsI9mlyvm6OP76bcIPeW9Gb5ZSZgec',
+      }}
     />
   </body>
 </html>
@@ -235,7 +250,6 @@ const songs = [
   body {
     background-color: #000;
     color: #fff;
-    background-image: url('background.jpg');
     background-repeat: repeat;
     background-size: 50%;
   }
