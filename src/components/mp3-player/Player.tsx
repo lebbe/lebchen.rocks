@@ -235,6 +235,7 @@ function Player({ songs, audio, userGestureHasHappened, playlistName }: Props) {
                         setSongIndex(i)
                         setIsPlaying(true)
                       }}
+                      title={song.artist + ' - ' + song.name}
                     >
                       <span className="playlist-track-track">
                         {trackNumber}.{song.artist}-{song.name}
