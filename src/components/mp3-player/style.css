@@ -47,6 +47,35 @@ body {
   margin-right: -3px;
 }
 
+.window-title-minimize {
+  position: absolute;
+  right: 4px;
+  top: 1px;
+  width: 16px;
+  height: 16px;
+  background-color: var(--color-background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: white;
+  z-index: 1;
+  border: 1px solid #a9a759;
+  outline: 2px solid #fff;
+  border-radius: 1px;
+}
+.window-title-minimize .material-icons {
+  font-size: 16px;
+}
+
+.window-title-minimize:hover {
+  background-color: #383858;
+}
+
+.window-title-minimize:active:hover {
+  top: 2px;
+}
+
 .window-content {
   background-color: var(--color-background);
   /* Gradient background color */

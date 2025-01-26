@@ -215,7 +215,7 @@ function Player({ songs, audio, userGestureHasHappened, playlistName }: Props) {
           </div>
         </div>
       </Window>
-      <Window title="Playlist">
+      <Window title="Playlist" minimizable>
         <div className="player-section">
           <div className="player-section-playlist">
             <ul className="playlist">
@@ -263,7 +263,7 @@ function Player({ songs, audio, userGestureHasHappened, playlistName }: Props) {
         </div>
       </Window>
       {biggestAlbumArt && (
-        <Window title="Album art">
+        <Window minimizable title="Album art">
           <img src={biggestAlbumArt.src} />
         </Window>
       )}
