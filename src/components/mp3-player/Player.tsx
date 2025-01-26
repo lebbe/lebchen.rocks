@@ -220,6 +220,7 @@ function Player({ songs, audio, userGestureHasHappened, playlistName }: Props) {
           <div className="player-section-playlist">
             <ul className="playlist">
               {songs.map(function (song: Song, i: number) {
+                const trackNumber = prefixNumberWithZero(i + 1, songs.length)
                 return (
                   <li
                     key={song.src}
@@ -233,11 +234,21 @@ function Player({ songs, audio, userGestureHasHappened, playlistName }: Props) {
                     }
                   >
                     <span className="playlist-track-track">
-                      {i + 1}. {song.artist} - {song.name}
+                      {trackNumber}.{song.artist}-{song.name}
                     </span>
                     <span className="playlist-track-duration">
                       {song.duration}
                     </span>
+                    <a
+                      onClick={function preventDefault(e) {
+                        e.stopPropagation()
+                      }}
+                      href={song.src}
+                      download={`${trackNumber} ${song.artist} - ${song.name}.mp3`}
+                      className="playlist-track-download"
+                    >
+                      <span className="material-icons">download</span>
+                    </a>
                   </li>
                 )
               })}
@@ -252,6 +263,19 @@ function Player({ songs, audio, userGestureHasHappened, playlistName }: Props) {
       )}
     </div>
   )
+}
+
+/**
+ * length here is not the length of the number, but how the highest number
+ * that exists in the list of songs. For example, if the highest number is 100,
+ * the length should be 3.
+ *
+ * @param number
+ * @param playlistLength
+ */
+function prefixNumberWithZero(number: number, playlistLength: number) {
+  const length = playlistLength.toString().length
+  return number.toString().padStart(length, '0')
 }
 
 type WrapperProps = {

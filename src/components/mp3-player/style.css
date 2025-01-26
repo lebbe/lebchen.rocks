@@ -230,11 +230,17 @@ body {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+  align-items: center;
   white-space: nowrap;
   font-size: 14px;
   color: var(--color-text);
   text-shadow: 0 0 3px #004600;
   cursor: pointer;
+}
+
+.playlist-track:hover {
+  background-color: var(--color-text);
+  color: #000;
 }
 
 .playlist-track-playing {
@@ -255,6 +261,22 @@ body {
 
 .playlist-track-dash {
   padding: 0 5px;
+}
+
+.playlist-track-download {
+  font-size: 12px;
+  padding: 0 15px;
+  color: var(--color-text);
+  background-color: #000;
+}
+
+.playlist-track-download:hover {
+  outline: 1px solid var(--color-text);
+}
+
+.playlist-track-download:active:hover {
+  position: relative;
+  top: 1px;
 }
 
 /*
