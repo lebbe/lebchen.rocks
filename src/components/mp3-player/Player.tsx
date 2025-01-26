@@ -224,25 +224,30 @@ function Player({ songs, audio, userGestureHasHappened, playlistName }: Props) {
                 return (
                   <li
                     key={song.src}
-                    onClick={() => {
-                      setSongIndex(i)
-                      setIsPlaying(true)
-                    }}
                     className={
                       'playlist-track ' +
                       (songIndex === i ? 'playlist-track-playing' : '')
                     }
                   >
-                    <span className="playlist-track-track">
-                      {trackNumber}.{song.artist}-{song.name}
-                    </span>
-                    <span className="playlist-track-duration">
-                      {song.duration}
-                    </span>
+                    <button
+                      className="playlist-track-button"
+                      onClick={() => {
+                        setSongIndex(i)
+                        setIsPlaying(true)
+                      }}
+                    >
+                      <span className="playlist-track-track">
+                        {trackNumber}.{song.artist}-{song.name}
+                      </span>
+                      <span className="playlist-track-duration">
+                        {song.duration}
+                      </span>
+                    </button>
                     <a
                       onClick={function preventDefault(e) {
                         e.stopPropagation()
                       }}
+                      title="Download song"
                       href={song.src}
                       download={`${trackNumber} ${song.artist} - ${song.name}.mp3`}
                       className="playlist-track-download"

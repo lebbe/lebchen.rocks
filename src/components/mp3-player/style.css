@@ -232,13 +232,30 @@ body {
   flex-wrap: nowrap;
   align-items: center;
   white-space: nowrap;
+  justify-content: space-between;
   font-size: 14px;
   color: var(--color-text);
   text-shadow: 0 0 3px #004600;
+}
+
+.playlist-track-button {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+  justify-content: space-between;
+  font-size: 14px;
+  color: var(--color-text);
+  background: #000;
+  border: none;
+  font-family: 'Press Start 2P', 'VT323', Tahoma, Arial, sans-serif;
   cursor: pointer;
 }
 
-.playlist-track:hover {
+.playlist-track-button:hover {
   background-color: var(--color-text);
   color: #000;
 }
