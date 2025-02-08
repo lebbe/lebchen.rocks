@@ -1,0 +1,26 @@
+.backgroundImage {
+  width: 100vh;
+  height: 100vh;
+  position: fixed;
+  inset-block: 0px;
+  inset-inline: 0px;
+  filter: blur(16px);
+  transform: scale(1.1);
+  background-size: cover;
+  /* center align background image */
+  background-position-x: calc(100vw / 2);
+}
+
+@media screen and (orientation: landscape) {
+  .backgroundImage {
+    width: 100vw;
+    height: 100vw;
+  }
+}
+
+.overlay {
+  position: absolute;
+  inset-block: 0px;
+  inset-inline: 0px;
+  background: linear-gradient(rgba(24, 24, 24, 0), rgb(0, 0, 0));
+}
