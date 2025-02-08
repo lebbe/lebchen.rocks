@@ -1,5 +1,4 @@
 ---
-import { Links } from '../../components/Link/Links'
 import { PlayerWrapper } from '../../components/mp3-player/Player'
 
 const artwork = [
@@ -89,6 +88,64 @@ const josefArtwork = [
   },
 ]
 
+const poorArtwork = [
+  { src: '/crosssnow/poor96.jpg', sizes: '96x96', type: 'image/png' },
+  {
+    src: '/crosssnow/poor128.jpg',
+    sizes: '128x128',
+    type: 'image/png',
+  },
+  {
+    src: '/crosssnow/poor192.jpg',
+    sizes: '192x192',
+    type: 'image/png',
+  },
+  {
+    src: '/crosssnow/poor256.jpg',
+    sizes: '256x256',
+    type: 'image/png',
+  },
+  {
+    src: '/crosssnow/poor384.jpg',
+    sizes: '384x384',
+    type: 'image/png',
+  },
+  {
+    src: '/crosssnow/poor512.jpg',
+    sizes: '512x512',
+    type: 'image/png',
+  },
+]
+
+const hitmanArtwork = [
+  { src: '/crosssnow/hitman96.jpg', sizes: '96x96', type: 'image/png' },
+  {
+    src: '/crosssnow/hitman128.jpg',
+    sizes: '128x128',
+    type: 'image/png',
+  },
+  {
+    src: '/crosssnow/hitman192.jpg',
+    sizes: '192x192',
+    type: 'image/png',
+  },
+  {
+    src: '/crosssnow/hitman256.jpg',
+    sizes: '256x256',
+    type: 'image/png',
+  },
+  {
+    src: '/crosssnow/hitman384.jpg',
+    sizes: '384x384',
+    type: 'image/png',
+  },
+  {
+    src: '/crosssnow/hitman512.jpg',
+    sizes: '512x512',
+    type: 'image/png',
+  },
+]
+
 const songs = [
   {
     name: 'CrossSnow theme',
@@ -116,14 +173,14 @@ const songs = [
     artist: 'lebchen',
     src: '/crosssnow/04 lebchen - Poor Rapists.mp3',
     duration: '01:37',
-    artwork,
+    artwork: poorArtwork,
   },
   {
     name: 'The Hitman',
     artist: 'lebchen',
     src: '/crosssnow/05 lebchen - The Hitman.mp3',
     duration: '01:55',
-    artwork,
+    artwork: hitmanArtwork,
   },
   {
     name: 'Porn Pig',

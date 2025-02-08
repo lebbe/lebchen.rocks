@@ -16,6 +16,11 @@ body {
   position: relative;
 }
 
+.mp3-player {
+  display: flex;
+  justify-content: space-around;
+}
+
 .player {
   position: relative;
   opacity: 1;
