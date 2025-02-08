@@ -8,6 +8,7 @@ body {
   /* Define theme colors */
   --color-background: #2a2739;
   --color-text: #42d744;
+  --color-text-active: #85d487;
   --color-text-shadow: #004600;
 }
 
@@ -294,7 +295,17 @@ body {
 }
 
 .playlist-track-playing {
-  color: white;
+  outline: 1px solid var(--color-text);
+}
+
+.playlist-track-playing button span {
+  color: var(--color-text-active);
+  text-shadow: 0 0 1px var(--color-text);
+}
+
+.playlist-track-playing button:hover span {
+  background-color: var(--color-text-active);
+  color: #000;
 }
 
 .playlist-track-track {
