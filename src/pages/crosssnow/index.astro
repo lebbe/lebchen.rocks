@@ -1,4 +1,5 @@
 ---
+import { SEO } from 'astro-seo'
 import { BackgroundImage } from '../../components/BackgroundImage/BackgroundImage'
 import { PlayerWrapper } from '../../components/mp3-player/Player'
 
@@ -268,13 +269,64 @@ const songs = [
     artwork,
   },
 ]
+const image = '/crosssnow/Cover512.jpg'
+const title = 'CrossSnow Special Edition Original Motion Picture Soundtrack'
+const description =
+  'The complete soundtrack to the upcoming movie CrossSnow. This album features the original score by lebchen and additional tracks by Cuneax and Lars-Erik Bruce.'
+const audio = songs[0].src
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
+    <SEO
+      title={title}
+      description={description}
+      canonical={'https://lebchen.rocks' + Astro.url.pathname}
+      openGraph={{
+        basic: {
+          title: title,
+          type: 'website',
+          image: "/crosssnow/Cover512.jpg",
+          url: 'https://lebchen.rocks' + Astro.url.pathname,
+        },
+        optional: {
+          description,
+          audio: audio,
+          locale: 'en_US',
+        },
+        image: {
+          url: image,
+          secureUrl: image,
+          type: 'image/jpeg',
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+        article: {
+          authors: ['lebchen'],
+          section: 'Music',
+          tags: ['synthwave'],
+        },
+      }}
+      twitter={{
+        card: 'summary_large_image',
+        title,
+        description,
+        image,
+        imageAlt: title,
+      }}
+    />
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap"
+      rel="stylesheet"
+    />
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
